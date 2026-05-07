@@ -1,6 +1,6 @@
 package com.toystore.toy.model;
 
-public class Toy {
+public class toy {
 
     private String toyId;
     private String name;
@@ -8,7 +8,7 @@ public class Toy {
     private int ageGroup;
     private int stock;
 
-    public Toy(String toyId, String name, double price, int ageGroup, int stock) {
+    public toy(String toyId, String name, double price, int ageGroup, int stock) {
         this.toyId = toyId;
         this.name = name;
         this.price = price;
