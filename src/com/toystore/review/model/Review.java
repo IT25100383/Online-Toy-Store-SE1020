@@ -72,4 +72,8 @@ public class Review {
                 ReviewStatus.valueOf(parts[6]) //convert String → enum
         );
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7124fb924698559db8054038874a150f3722fc80
