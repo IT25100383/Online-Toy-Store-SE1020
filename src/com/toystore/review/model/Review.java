@@ -30,18 +30,46 @@ public class Review {
     }
 
     // Getters
-    public String getReviewId() { return reviewId; }
-    public String getUserId() { return userId; }
-    public String getToyId() { return toyId; }
-    public int getRating() { return rating; }
-    public String getComment() { return comment; }
-    public String getDate() { return date; }
-    public ReviewStatus getStatus() { return status; }
+    public String getReviewId() {
+        return reviewId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getToyId() {
+        return toyId;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public ReviewStatus getStatus() {
+        return status;
+    }
 
     // Setters (consistent with enum now)
-    public void setRating(int rating) { this.rating = rating; }
-    public void setComment(String comment) { this.comment = comment; }
-    public void setStatus(ReviewStatus status) { this.status = status; }
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public void setStatus(ReviewStatus status) {
+        this.status = status;
+    }
 
     // Added abstraction point (base method for polymorphism)
     public String display() {
@@ -72,8 +100,4 @@ public class Review {
                 ReviewStatus.valueOf(parts[6]) //convert String → enum
         );
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7124fb924698559db8054038874a150f3722fc80
