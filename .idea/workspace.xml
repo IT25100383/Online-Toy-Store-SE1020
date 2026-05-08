@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="72bf9595-0dd4-4af8-b872-8127dcc3bfc5" name="Changes" comment="Coding Started">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/toystore/category/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/category/model/Category.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;IT25100383&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/IT25100383/Online-Toy-Store-SE1020&quot;,
+    &quot;accountId&quot;: &quot;207155f5-310f-4e96-a7da-311aef1da252&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3APtJphUiGhfjP95V0dN1TamXe2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MainTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "Merging main",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/USER/Documents/EDU/Y1/Y1S2/OOP/Project/Online Toy Store/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.toystore.category.service" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <module name="Online Toy Store" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Online Toy Store" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Online Toy Store" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.101" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.32098.101" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72bf9595-0dd4-4af8-b872-8127dcc3bfc5" name="Changes" comment="" />
+      <created>1772505973039</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772505973039</updated>
+      <workItem from="1772505977208" duration="9000" />
+      <workItem from="1772704236533" duration="11000" />
+      <workItem from="1772705727517" duration="391000" />
+      <workItem from="1772706144529" duration="4481000" />
+      <workItem from="1772772745657" duration="5401000" />
+      <workItem from="1772951006712" duration="2953000" />
+      <workItem from="1773116153986" duration="163000" />
+      <workItem from="1773291452704" duration="2305000" />
+      <workItem from="1773409517201" duration="1281000" />
+      <workItem from="1773412646085" duration="3082000" />
+      <workItem from="1773502272235" duration="2415000" />
+      <workItem from="1773582797666" duration="112000" />
+      <workItem from="1773828294293" duration="4253000" />
+      <workItem from="1773844032015" duration="3883000" />
+      <workItem from="1773969582547" duration="11253000" />
+      <workItem from="1774270395502" duration="993000" />
+      <workItem from="1776143935213" duration="828000" />
+      <workItem from="1776965709368" duration="4707000" />
+      <workItem from="1776996915366" duration="628000" />
+      <workItem from="1777614370777" duration="173000" />
+      <workItem from="1777614607953" duration="143000" />
+      <workItem from="1777975320775" duration="1699000" />
+      <workItem from="1778179070359" duration="2888000" />
+      <workItem from="1778205638983" duration="1312000" />
+      <workItem from="1778210994273" duration="863000" />
+      <workItem from="1778211887683" duration="103000" />
+      <workItem from="1778211995251" duration="1532000" />
+      <workItem from="1778213544605" duration="4344000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial project structure">
+      <option name="closed" value="true" />
+      <created>1772773183631</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772773183631</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Initial project structure">
+      <option name="closed" value="true" />
+      <created>1772773289144</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772773289144</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initial project structure">
+      <option name="closed" value="true" />
+      <created>1772773308077</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1772773308077</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Initial project structure with module folders">
+      <option name="closed" value="true" />
+      <created>1772773913364</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1772773913364</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Initial project structure with module folders">
+      <option name="closed" value="true" />
+      <created>1772777365303</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1772777365303</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Coding Started">
+      <option name="closed" value="true" />
+      <created>1773829719772</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773829719772</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial project structure" />
+    <MESSAGE value="Initial project structure with module folders" />
+    <MESSAGE value="Coding Started" />
+    <option name="LAST_COMMIT_MESSAGE" value="Coding Started" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

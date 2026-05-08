@@ -15,7 +15,7 @@ public class Category {
         this.description = description;
     }
 
-    // Getters
+    // Getters -> used to read data
     public String getId() {
 
         return id;
@@ -31,7 +31,7 @@ public class Category {
         return description;
     }
 
-    // Setters
+    // Setters -> used to update data
     public void setName(String name) {
 
         this.name = name;
@@ -43,6 +43,8 @@ public class Category {
     }
 
     // Convert object into one line for file storage
+    // Example:
+    // C01,Toys,Kids toys
     public String toFileString() {
 
         return id + "," + name + "," + description;
@@ -51,7 +53,14 @@ public class Category {
     // Convert one line from file back into a Category object
     public static Category fromFileString(String line) {
 
+        // Split line using comma
         String[] parts = line.split(",");
+
+        // Basic safety check
+        if (parts.length < 3) {
+
+            throw new IllegalArgumentException("Invalid category data");
+        }
 
         return new Category(
                 parts[0],
