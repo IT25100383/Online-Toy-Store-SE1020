@@ -1,6 +1,6 @@
 package com.toystore.admin.model;
 
-class Admin {
+public class Admin {
     private String username;
     private String password;
     private String role;

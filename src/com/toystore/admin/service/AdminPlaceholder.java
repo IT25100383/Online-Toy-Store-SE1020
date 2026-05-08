@@ -1,4 +1,4 @@
 package com.toystore.admin.service;
 
-public class Placeholder {
+public class AdminPlaceholder {
 }
