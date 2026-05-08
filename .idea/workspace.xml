@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72bf9595-0dd4-4af8-b872-8127dcc3bfc5" name="Changes" comment="Coding Started">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/toystore/category/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/category/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/toys.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/toys.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/toystore/order/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/order/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/toystore/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/user/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/users.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +43,6 @@
 }</component>
   <component name="ProjectId" id="3APtJphUiGhfjP95V0dN1TamXe2" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -54,7 +54,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/USER/Documents/EDU/Y1/Y1S2/OOP/Project/Online Toy Store/src/Main.java",
@@ -137,7 +137,7 @@
       <workItem from="1778210994273" duration="863000" />
       <workItem from="1778211887683" duration="103000" />
       <workItem from="1778211995251" duration="1532000" />
-      <workItem from="1778213544605" duration="4344000" />
+      <workItem from="1778213544605" duration="10308000" />
     </task>
     <task id="LOCAL-00001" summary="Initial project structure">
       <option name="closed" value="true" />

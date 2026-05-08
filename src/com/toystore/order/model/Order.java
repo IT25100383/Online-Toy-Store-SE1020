@@ -73,9 +73,39 @@ public class Order {
     }
 
     // Setters
+    public void setOrderId(String orderId) {
+
+        this.orderId = orderId;
+    }
+
+    public void setUserId(String userId) {
+
+        this.userId = userId;
+    }
+
+    public void setToyId(String toyId) {
+
+        this.toyId = toyId;
+    }
+
+    public void setToyName(String toyName) {
+
+        this.toyName = toyName;
+    }
+
     public void setQuantity(int quantity) {
 
         this.quantity = quantity;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+
+        this.totalPrice = totalPrice;
+    }
+
+    public void setOrderDate(String orderDate) {
+
+        this.orderDate = orderDate;
     }
 
     public void setStatus(String status) {
@@ -84,6 +114,8 @@ public class Order {
     }
 
     // Convert object to one line for file storage
+    // Example:
+    // ORD-001,USR-001,TOY-001,LEGO Set,2,5000.0,2026-03-01,PENDING
     public String toFileString() {
 
         return orderId + "," + userId + "," + toyId + "," +
@@ -96,6 +128,12 @@ public class Order {
 
         String[] parts = line.split(",");
 
+        // Basic safety check
+        if (parts.length < 8) {
+
+            throw new IllegalArgumentException("Invalid order data");
+        }
+
         return new Order(
                 parts[0],
                 parts[1],
@@ -106,5 +144,12 @@ public class Order {
                 parts[6],
                 parts[7]
         );
+    }
+
+    @Override
+    public String toString() {
+
+        return "Order{orderId=" + orderId +
+                ", status=" + status + "}";
     }
 }
