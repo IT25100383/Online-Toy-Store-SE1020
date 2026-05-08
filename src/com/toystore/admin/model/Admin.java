@@ -12,7 +12,7 @@ public class Admin {
         this.role = role;
     }
 
-    // Getters
+    //Getters
     public String getUsername() {
         return username;
     }

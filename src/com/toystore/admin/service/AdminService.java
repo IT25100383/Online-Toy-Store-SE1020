@@ -7,7 +7,7 @@ import java.util.*;
 public class AdminService {
         private static final String FILE_NAME = "admins.txt";
 
-        // CREATE - Add new admin
+        //CREATE - Add new admin
         public void addAdmin(Admin admin) {
             try (FileWriter fw = new FileWriter(FILE_NAME, true)) {
                 fw.write(admin.toString() + "\n");
