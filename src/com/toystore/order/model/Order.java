@@ -53,21 +53,27 @@ public class Order {
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
-    // File format: (ID, User, Toy, Name, Qty, Price, Date, Status)
+    // Convert object to one line for file storage
+    // Example: ORD-001,USR-001,TOY-001,LEGO Set,2,5000.00,2026-03-01,PENDING
     public String toFileString() {
         return String.format("%s,%s,%s,%s,%d,%.2f,%s,%s",
                 orderId, userId, toyId, toyName, quantity, totalPrice, orderDate, status);
     }
 
+    // Parse one line from file to Order Object
     public static Order fromFileString(String line) {
         try {
             String[] parts = line.split(",");
             if (parts.length >= 8) {
                 return new Order(
-                        parts[0].trim(), parts[1].trim(), parts[2].trim(), parts[3].trim(),
+                        parts[0].trim(), 
+                        parts[1].trim(), 
+                        parts[2].trim(), 
+                        parts[3].trim(),
                         Integer.parseInt(parts[4].trim()),
                         Double.parseDouble(parts[5].trim()),
-                        parts[6].trim(), parts[7].trim()
+                        parts[6].trim(), 
+                        parts[7].trim()
                 );
             }
         } catch (Exception e) {
@@ -80,9 +86,4 @@ public class Order {
     public String toString() {
         return "Order [ID=" + orderId + ", Item=" + toyName + ", Total=" + totalPrice + ", Status=" + status + "]";
     }
-
-
-
-
-
 }

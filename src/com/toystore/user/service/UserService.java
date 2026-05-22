@@ -6,7 +6,7 @@ import java.nio.file.*;
 import java.util.List;
 
 public class UserService {
-    private final Path path = Paths.get("src/main/resources/users.txt");
+    private final Path path = Paths.get("src/data/users.txt");
 
     public void register(User user) throws IOException {
         String data = user.toCSV() + "\n";

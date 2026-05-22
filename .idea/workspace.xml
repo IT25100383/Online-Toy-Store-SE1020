@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="72bf9595-0dd4-4af8-b872-8127dcc3bfc5" name="Changes" comment="Coding Started">
+    <list default="true" id="72bf9595-0dd4-4af8-b872-8127dcc3bfc5" name="Changes" comment="Order java merge resolved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,12 +28,12 @@
     &quot;assignee&quot;: &quot;IT25100383&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/IT25100383/Online-Toy-Store-SE1020&quot;,
-    &quot;accountId&quot;: &quot;207155f5-310f-4e96-a7da-311aef1da252&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/IT25100383/Online-Toy-Store-SE1020.git",
+    "accountId": "4fb97e7b-1bfd-49a4-9559-0fa484a353c6"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -39,7 +42,6 @@
 }</component>
   <component name="ProjectId" id="3APtJphUiGhfjP95V0dN1TamXe2" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
@@ -51,7 +53,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature/order-management",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/USER/Documents/EDU/Y1/Y1S2/OOP/Project/Online Toy Store/src/Main.java",
@@ -84,8 +86,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
-        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
       </set>
     </attachedChunks>
   </component>
@@ -121,72 +122,7 @@
       <workItem from="1778179070359" duration="2888000" />
       <workItem from="1778205638983" duration="1312000" />
       <workItem from="1778210994273" duration="863000" />
-      <workItem from="1778211887683" duration="103000" />
-      <workItem from="1778211995251" duration="1532000" />
-      <workItem from="1778213544605" duration="4344000" />
-      <workItem from="1779421884614" duration="264000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial project structure">
-      <option name="closed" value="true" />
-      <created>1772773183631</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1772773183631</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Initial project structure">
-      <option name="closed" value="true" />
-      <created>1772773289144</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1772773289144</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Initial project structure">
-      <option name="closed" value="true" />
-      <created>1772773308077</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1772773308077</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Initial project structure with module folders">
-      <option name="closed" value="true" />
-      <created>1772773913364</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1772773913364</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Initial project structure with module folders">
-      <option name="closed" value="true" />
-      <created>1772777365303</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1772777365303</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Coding Started">
-      <option name="closed" value="true" />
-      <created>1773829719772</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1773829719772</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial project structure" />
-    <MESSAGE value="Initial project structure with module folders" />
-    <MESSAGE value="Coding Started" />
-    <option name="LAST_COMMIT_MESSAGE" value="Coding Started" />
-  </component>
-  <component name="github-copilot-workspace">
+      <component name="github-copilot-workspace">
     <instructionFileLocations>
       <option value=".github/instructions" />
     </instructionFileLocations>
