@@ -25,7 +25,7 @@ public class Admin {
         return role;
     }
 
-    // Setters
+    //Setters
     public void setPassword(String password) {
         this.password = password;
     }

@@ -32,7 +32,7 @@ public class AdminService {
             }
         }
 
-        // UPDATE - Modify admin password or role
+        //UPDATE - Modify admin password or role
         public void updateAdmin(String username, String newPassword, String newRole) {
             List<String> admins = new ArrayList<>();
             boolean found = false;
