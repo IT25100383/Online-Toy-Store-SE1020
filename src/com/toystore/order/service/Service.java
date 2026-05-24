@@ -1,4 +1,4 @@
 package com.toystore.order.service;
 
-public class Placeholder {
+public @interface Service {
 }
