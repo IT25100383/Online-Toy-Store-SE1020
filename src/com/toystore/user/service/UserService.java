@@ -9,7 +9,7 @@ import java.util.List;
 public class UserService {
 
     // Local storage file path inside resources folder
-    private final Path path = Paths.get("src/main/resources/users.txt");
+    private final Path path = Paths.get("data/users.txt");
 
     // =========================================================================
     // C - CREATE (Register)
