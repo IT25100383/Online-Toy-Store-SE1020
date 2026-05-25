@@ -1,12 +1,54 @@
-T01,Toy Car,10.5,5,20
-T02,Teddy Bear,12.0,3,15
-T03,Lego Set,25.0,8,10
-T01,Toy Car,10.5,5,20
-T02,Teddy Bear,12.0,3,15
-T03,Lego Set,25.0,8,10
-T01,Toy Car,10.5,5,20
-T02,Teddy Bear,12.0,3,15
-T03,Lego Set,25.0,8,10
-T01,Toy Car,10.5,5,20
-T02,Teddy Bear,12.0,3,15
-T03,Lego Set,25.0,8,10
+T001,Squishmallows 12 Plush,Soft,19.99,5,25
+T002,Classic Steiff Teddy Bear,Soft,45.00,5,12
+T003,Jellycat Bashful Bunny,Soft,27.50,3,18
+T004,Disney Parks Mickey Mouse,Soft,24.99,5,20
+T005,Gund Animated Flappy Elephant,Soft,39.99,3,9
+T006,Ty Beanie Boos Heather Cat,Soft,8.99,5,30
+T007,Fisher Price Glow Worm,Soft,15.99,3,14
+T008,Care Bears Cheer Bear,Soft,14.98,5,16
+T009,Wild Republic Black Bear,Soft,18.50,5,11
+T010,Pokemon Center Pikachu Plush,Soft,16.99,5,22
+
+T011,LEGO Icons Botanical Bouquet,Creative,59.99,12,15
+T012,Crayola Ultimate Art Case,Creative,17.99,5,28
+T013,Play Doh Kitchen Creations,Creative,14.99,3,35
+T014,Melissa Doug Stamp Set,Creative,12.99,5,17
+T015,Spirograph Deluxe Set,Creative,22.99,8,13
+T016,Kinetic Sand Deluxe Playset,Creative,19.99,5,24
+T017,Aquabeads Deluxe Studio,Creative,24.99,5,19
+T018,Etch A Sketch Classic,Creative,14.99,5,20
+T019,3Doodler Start 3D Pen,Creative,49.99,12,8
+T020,Osmo Creative Starter Kit,Creative,69.99,10,7
+
+T021,Rubiks Impossible Cube,Puzzles,14.99,8,16
+T022,Ravensburger 1000pc Puzzle,Puzzles,19.99,12,9
+T023,Kanoodle 3D Brain Teaser,Puzzles,13.99,8,20
+T024,Melissa Doug Peg Puzzle,Puzzles,21.99,3,14
+T025,National Geographic 3D Puzzle,Puzzles,29.99,10,10
+T026,ThinkFun Gravity Maze,Puzzles,34.99,8,12
+T027,Perplexus Beast 3D Maze,Puzzles,21.99,8,11
+T028,EuroGraphics Periodic Table Puzzle,Puzzles,18.99,12,6
+T029,Wooden T Cubic Puzzle,Puzzles,9.99,8,25
+T030,Mastermind Code Game,Puzzles,16.50,8,15
+
+T031,Hot Wheels Monster Truck Loop,Sports,34.99,8,13
+T032,Nerf Elite Commander Blaster,Sports,14.99,8,27
+T033,Spalding TF250 Basketball,Sports,29.99,10,12
+T034,Razor A Kick Scooter,Sports,44.99,8,8
+T035,Wilson Traditional Soccer Ball,Sports,17.99,8,21
+T036,Little Tikes Easy Score Hoop,Sports,39.99,5,10
+T037,Franklin Sports Badminton Set,Sports,27.99,8,14
+T038,Stiga Ping Pong Paddles,Sports,19.99,10,16
+T039,Wham O Ultimate Frisbee,Sports,11.50,5,22
+T040,Bowka Adjust Inline Skates,Sports,49.99,10,7
+
+T041,Catan Board Game,Board Games,48.99,12,11
+T042,Monopoly Ultimate Banking,Board Games,26.99,8,15
+T043,Ticket to Ride,Board Games,44.99,10,9
+T044,UNO Flip,Board Games,6.99,5,40
+T045,Codenames,Board Games,19.99,12,17
+T046,Scrabble Deluxe Edition,Board Games,39.99,10,8
+T047,Risk Global Domination,Board Games,31.99,12,7
+T048,Candy Land Retro Edition,Board Games,12.99,3,19
+T049,Pandemic Cooperative Game,Board Games,35.99,12,6
+T050,Connect 4 Classic Grid,Board Games,11.99,5,18
