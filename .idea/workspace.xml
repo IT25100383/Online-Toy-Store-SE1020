@@ -7,14 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed94fee5-7e11-4c21-a088-95d3911d616f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/add-admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/edit-admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/view-admins.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/toystore/admin/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/admin/service/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/toystore/admin/servlet/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/admin/servlet/AdminServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/toystore/category/servlet/CategoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/category/servlet/CategoryServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/toystore/review/servlet/ReviewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/review/servlet/ReviewServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/toystore/toy/servlet/ToyServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/toy/servlet/ToyServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/toystore/user/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/toystore/user/servlet/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review/view-reviews.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/review/view-reviews.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/toy/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/toy/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/partials/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/partials/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/partials/navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/partials/navbar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +25,13 @@
     <persistenceIdMap>
       <entry key="_C:/Users/USER/Documents/EDU/Y1/Y1S2/OOP/Project/Online Toy Store" value="3EFatYp9bKXtTxAJ8KwAdkH6VOn" />
     </persistenceIdMap>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
