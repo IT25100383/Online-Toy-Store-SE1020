@@ -28,6 +28,7 @@ public class AdminService {
         }
     }
 
+   
     public void updateAdmin(String username, String newPassword, String newRole) {
         List<String> admins = new ArrayList<>();
         boolean found = false;
@@ -46,8 +47,11 @@ public class AdminService {
             System.out.println("Error updating admin.");
         }
 
+        // Rewrite file
         try (FileWriter fw = new FileWriter(FILE_NAME)) {
-            for (String admin : admins) fw.write(admin + "\n");
+            for (String admin : admins) {
+                fw.write(admin + "\n");
+            }
         } catch (IOException e) {
             System.out.println("Error writing file.");
         }
@@ -60,15 +64,20 @@ public class AdminService {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-                if (!data[0].equals(username)) admins.add(line);
-                else found = true;
+                if (!data[0].equals(username)) {
+                    admins.add(line);
+                } else {
+                    found = true;
+                }
             }
         } catch (IOException e) {
             System.out.println("Error deleting admin.");
         }
 
         try (FileWriter fw = new FileWriter(FILE_NAME)) {
-            for (String admin : admins) fw.write(admin + "\n");
+            for (String admin : admins) {
+                fw.write(admin + "\n");
+            }
         } catch (IOException e) {
             System.out.println("Error writing file.");
         }
