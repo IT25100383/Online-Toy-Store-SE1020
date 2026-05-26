@@ -137,6 +137,24 @@ public class OrderService {
         return found;
     }
 
+    public List<Order> getOrdersSortedByPriceSelectionSort() {
+        List<Order> orders = getAllOrders();
+        int n = orders.size();
+        for (int i = 0; i < n - 1; i++) {
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (orders.get(j).getTotalPrice() < orders.get(min_idx).getTotalPrice()) {
+                    min_idx = j;
+                }
+            }
+
+            Order temp = orders.get(min_idx);
+            orders.set(min_idx, orders.get(i));
+            orders.set(i, temp);
+        }
+        return orders;
+    }
+
     public int getTotalOrders() {
         return getAllOrders().size();
     }
