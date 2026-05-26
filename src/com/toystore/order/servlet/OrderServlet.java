@@ -1,7 +1,6 @@
 package com.toystore.order.servlet;
 
 import com.toystore.order.service.OrderService;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -28,6 +27,8 @@ public class OrderServlet extends HttpServlet {
                 break;
 
             case "checkout":
+                // UPDATED: Capture toyId from request and set it as an attribute for checkout.jsp
+                request.setAttribute("toyId", request.getParameter("toyId"));
                 request.getRequestDispatcher("/WEB-INF/views/order/checkout.jsp").forward(request, response);
                 break;
 
@@ -51,16 +52,24 @@ public class OrderServlet extends HttpServlet {
 
         String action = request.getParameter("action");
 
-        if ("placeOrder".equals(action)) {
+        // Match the 'place' action from checkout.jsp
+        if ("place".equals(action)) {
             String userId = request.getParameter("userId");
             String toyId = request.getParameter("toyId");
-            int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-            // USE EXISTING SERVICE LOGIC
+            // Basic null/empty check before parsing
+            String qtyStr = request.getParameter("quantity");
+            int quantity = (qtyStr != null) ? Integer.parseInt(qtyStr) : 1;
+
+            // Process the order using Service logic
             String result = orderService.placeOrder(userId, toyId, quantity);
 
-            request.setAttribute("orderResult", result);
-            request.getRequestDispatcher("/WEB-INF/views/order/order-confirmation.jsp").forward(request, response);
+            // Store the result in session temporarily so it survives the redirect
+            HttpSession session = request.getSession();
+            session.setAttribute("orderResult", result);
+
+            // REDIRECT to the confirmation page
+            response.sendRedirect(request.getContextPath() + "/order?action=confirmation");
         }
     }
 }

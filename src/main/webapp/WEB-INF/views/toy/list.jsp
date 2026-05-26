@@ -24,27 +24,22 @@
            class="badge ${empty param.category ? 'bg-warning text-dark' : 'bg-dark'} fs-6 px-4 py-3 text-decoration-none">
             All Toys
         </a>
-
         <a href="${pageContext.request.contextPath}/toy?action=view&category=Soft"
            class="badge ${param.category == 'Soft' ? 'bg-warning text-dark' : 'bg-dark'} fs-6 px-4 py-3 text-decoration-none">
             Soft
         </a>
-
         <a href="${pageContext.request.contextPath}/toy?action=view&category=Creative"
            class="badge ${param.category == 'Creative' ? 'bg-warning text-dark' : 'bg-dark'} fs-6 px-4 py-3 text-decoration-none">
             Creative
         </a>
-
         <a href="${pageContext.request.contextPath}/toy?action=view&category=Puzzles"
            class="badge ${param.category == 'Puzzles' ? 'bg-warning text-dark' : 'bg-dark'} fs-6 px-4 py-3 text-decoration-none">
             Puzzles
         </a>
-
         <a href="${pageContext.request.contextPath}/toy?action=view&category=Sports"
            class="badge ${param.category == 'Sports' ? 'bg-warning text-dark' : 'bg-dark'} fs-6 px-4 py-3 text-decoration-none">
             Sports
         </a>
-
         <a href="${pageContext.request.contextPath}/toy?action=view&category=Board Games"
            class="badge ${param.category == 'Board Games' ? 'bg-warning text-dark' : 'bg-dark'} fs-6 px-4 py-3 text-decoration-none">
             Board Games
@@ -73,20 +68,30 @@
                                 <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-3">${toy.category}</span>
                             </div>
                             <div class="card-body d-flex flex-column">
-                                <h5 class="fw-bold mb-3">${toy.name}</h5>
-                                <p class="text-secondary mb-2">Recommended Age: <strong>${toy.ageGroup}+</strong></p>
-                                <p class="mb-4">
-                                    <span class="${toy.stock > 10 ? 'text-success' : 'text-warning'}">
-                                        ${toy.stock} units available
-                                    </span>
-                                </p>
-                                <div class="mt-auto">
-                                    <div class="d-flex justify-content-between align-items-center mb-4">
-                                        <h4 class="fw-bold text-warning mb-0">$${toy.price}</h4>
+                                <h5 class="fw-bold mb-1">${toy.name}</h5>
+                                <p class="text-secondary small mb-2">Age: ${toy.ageGroup}+</p>
+
+                                <div class="mb-3">
+                                    <span class="fs-4 fw-bold text-warning">$${toy.price}</span>
+                                    <div class="small ${toy.stock > 5 ? 'text-success' : 'text-danger'}">
+                                            ${toy.stock} in stock
                                     </div>
+                                </div>
+
+                                <div class="mt-auto">
+                                    <a href="${pageContext.request.contextPath}/order?action=checkout&toyId=${toy.toyId}"
+                                       class="btn btn-warning w-100 fw-bold mb-2">
+                                        <i class="bi bi-cart-plus me-2"></i>Order Now
+                                    </a>
+
                                     <div class="d-flex gap-2">
-                                        <a href="${pageContext.request.contextPath}/toy?action=editPage&toyId=${toy.toyId}" class="btn btn-outline-warning flex-grow-1">Edit</a>
-                                        <a href="${pageContext.request.contextPath}/toy?action=delete&toyId=${toy.toyId}" class="btn btn-outline-danger" onclick="return confirm('Delete this toy?');">Delete</a>
+                                        <a href="${pageContext.request.contextPath}/toy?action=editPage&toyId=${toy.toyId}"
+                                           class="btn btn-sm btn-outline-light flex-grow-1">Edit</a>
+                                        <a href="${pageContext.request.contextPath}/toy?action=delete&toyId=${toy.toyId}"
+                                           class="btn btn-sm btn-outline-danger"
+                                           onclick="return confirm('Delete this toy?');">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

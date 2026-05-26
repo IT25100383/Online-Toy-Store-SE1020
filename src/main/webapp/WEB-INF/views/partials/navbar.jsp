@@ -3,7 +3,7 @@
     Boolean adminPageFlag = (Boolean) request.getAttribute("isAdminPage");
     boolean isAdminNav = adminPageFlag != null && adminPageFlag;
 
-    // UPDATED: Cast session attribute to User model
+    // Cast session attribute to User model
     com.toystore.user.model.User loggedInUser = (com.toystore.user.model.User) session.getAttribute("loggedInUser");
 
     String navBackground;
@@ -36,15 +36,14 @@
                 <% if (!isAdminNav) { %>
                 <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="${pageContext.request.contextPath}/">Home</a></li>
                 <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="${pageContext.request.contextPath}/toy?action=view">Browse Store</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#collections">Collections</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#new-arrivals">New Arrivals</a></li>
+                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="${pageContext.request.contextPath}/review?action=view">Reviews</a></li>
 
                 <% if (loggedInUser == null) { %>
                 <li class="nav-item ms-lg-3"><a class="btn btn-dark rounded-pill px-4" href="${pageContext.request.contextPath}/user?action=loginPage">Sign In</a></li>
                 <li class="nav-item"><a class="btn btn-outline-dark rounded-pill px-4" href="${pageContext.request.contextPath}/user?action=registerPage">Register</a></li>
                 <% } else { %>
                 <li class="nav-item"><span class="nav-link fw-bold text-dark">Welcome, <%= loggedInUser.getName() %></span></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#">My Orders</a></li>
+                <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="${pageContext.request.contextPath}/order?action=view">My Orders</a></li>
                 <li class="nav-item"><a class="btn btn-dark rounded-pill px-4" href="${pageContext.request.contextPath}/user?action=logout">Logout</a></li>
                 <% } %>
 
@@ -52,6 +51,8 @@
                 <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/admin">Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/toy?action=view">Inventory</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/user?action=view">Users</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/order?action=view">Orders</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="${pageContext.request.contextPath}/review?action=view">Reviews</a></li>
                 <li class="nav-item ms-lg-3"><a class="btn btn-warning rounded-pill px-4" href="${pageContext.request.contextPath}/">Back to Store</a></li>
                 <% } %>
             </ul>
