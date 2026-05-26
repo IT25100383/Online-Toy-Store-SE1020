@@ -5,6 +5,7 @@ import com.toystore.review.model.Review;
 import com.toystore.review.model.Review.ReviewStatus;
 import com.toystore.review.model.VerifiedReview;
 import com.toystore.review.service.ReviewService;
+import com.toystore.user.model.User; // Added Import
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +25,15 @@ public class ReviewServlet extends HttpServlet {
         String action = request.getParameter("action");
         if (action == null) {
             action = "view";
+        }
+
+        // ROLE PROTECTION: Admin Only for Delete or Edit
+        if ("delete".equals(action) || "editPage".equals(action)) {
+            User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+            if (loggedInUser == null || !"ADMIN".equalsIgnoreCase(loggedInUser.getRole())) {
+                response.sendRedirect(request.getContextPath() + "/");
+                return;
+            }
         }
 
         switch (action) {
@@ -57,8 +67,17 @@ public class ReviewServlet extends HttpServlet {
 
         String action = request.getParameter("action");
 
-        // CREATE REVIEW
+        // ROLE PROTECTION: Admin Only for Status Updates or Manual Updates
+        if ("update".equals(action) || "updateStatus".equals(action)) {
+            User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+            if (loggedInUser == null || !"ADMIN".equalsIgnoreCase(loggedInUser.getRole())) {
+                response.sendRedirect(request.getContextPath() + "/");
+                return;
+            }
+        }
+
         if ("add".equals(action)) {
+            // ... (rest of create review logic remains same)
             String reviewType = request.getParameter("reviewType");
             String reviewId = reviewService.generateId();
             String userId = request.getParameter("userId");
@@ -77,7 +96,6 @@ public class ReviewServlet extends HttpServlet {
             }
             reviewService.addReview(review);
 
-            // UPDATE REVIEW
         } else if ("update".equals(action)) {
             reviewService.updateReview(
                     request.getParameter("reviewId"),
@@ -85,7 +103,6 @@ public class ReviewServlet extends HttpServlet {
                     request.getParameter("comment")
             );
 
-            // UPDATE STATUS
         } else if ("updateStatus".equals(action)) {
             reviewService.updateStatus(
                     request.getParameter("reviewId"),

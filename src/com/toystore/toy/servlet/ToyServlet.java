@@ -1,12 +1,12 @@
 package com.toystore.toy.servlet;
 
+import com.toystore.user.model.User;
 import com.toystore.toy.model.toy;
 import com.toystore.toy.service.ToyService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/toy")
 public class ToyServlet extends HttpServlet {
@@ -22,23 +22,24 @@ public class ToyServlet extends HttpServlet {
             action = "view";
         }
 
+        // SECURITY CHECK for Admin actions (Add, Edit, Delete)
+        if ("addPage".equals(action) || "editPage".equals(action) || "delete".equals(action)) {
+            User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+
+            if (loggedInUser == null || !"ADMIN".equalsIgnoreCase(loggedInUser.getRole())) {
+                response.sendRedirect(request.getContextPath() + "/");
+                return;
+            }
+        }
+
         switch (action) {
             case "view":
-                // UPDATED FILTER LOGIC
                 String category = request.getParameter("category");
-
                 if (category != null && !category.isEmpty()) {
-                    request.setAttribute(
-                            "toyList",
-                            toyService.getToysByCategory(category)
-                    );
+                    request.setAttribute("toyList", toyService.getToysByCategory(category));
                 } else {
-                    request.setAttribute(
-                            "toyList",
-                            toyService.getToyList()
-                    );
+                    request.setAttribute("toyList", toyService.getToyList());
                 }
-
                 request.getRequestDispatcher("/WEB-INF/views/toy/list.jsp").forward(request, response);
                 break;
 
@@ -52,8 +53,8 @@ public class ToyServlet extends HttpServlet {
                 break;
 
             case "delete":
-                String toyId = request.getParameter("toyId");
-                toyService.deleteToy(toyId);
+                String idToDelete = request.getParameter("toyId");
+                toyService.deleteToy(idToDelete);
                 response.sendRedirect(request.getContextPath() + "/toy?action=view");
                 break;
 
@@ -67,6 +68,16 @@ public class ToyServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
+
+        // SECURITY CHECK for sensitive POST actions
+        if ("add".equals(action) || "update".equals(action)) {
+            User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+
+            if (loggedInUser == null || !"ADMIN".equalsIgnoreCase(loggedInUser.getRole())) {
+                response.sendRedirect(request.getContextPath() + "/");
+                return;
+            }
+        }
 
         // ADD TOY
         if ("add".equals(action)) {

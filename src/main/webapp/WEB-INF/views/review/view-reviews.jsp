@@ -1,5 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    // ROLE CHECK LOGIC
+    com.toystore.user.model.User loggedInUser = (com.toystore.user.model.User) session.getAttribute("loggedInUser");
+    boolean isAdmin = loggedInUser != null && "ADMIN".equalsIgnoreCase(loggedInUser.getRole());
+%>
+
 <jsp:include page="/WEB-INF/views/partials/header.jsp">
     <jsp:param name="pageTitle" value="Feedback Matrix - Nexus Labs" />
 </jsp:include>
@@ -42,10 +48,23 @@
                                     <span class="text-muted-custom small font-monospace">${rev.date}</span>
                                 </div>
 
+                                    <%-- ADMIN MODERATION CONTROLS --%>
+                                <% if (isAdmin) { %>
                                 <div class="d-flex gap-2 mt-3">
-                                    <a href="${pageContext.request.contextPath}/review?action=editPage&reviewId=${rev.reviewId}" class="btn btn-outline-warning btn-sm flex-grow-1">Edit</a>
-                                    <a href="${pageContext.request.contextPath}/review?action=delete&id=${rev.reviewId}" class="btn btn-outline-danger btn-sm flex-grow-1" onclick="return confirm('Delete this review?');">Delete</a>
+                                    <a href="${pageContext.request.contextPath}/review?action=editPage&reviewId=${rev.reviewId}"
+                                       class="btn btn-outline-warning btn-sm flex-grow-1">Edit</a>
+
+                                    <a href="${pageContext.request.contextPath}/review?action=delete&id=${rev.reviewId}"
+                                       class="btn btn-outline-danger btn-sm flex-grow-1"
+                                       onclick="return confirm('Delete this review?');">Delete</a>
                                 </div>
+
+                                    <%-- Placeholder for future moderation logic (Approve/Reject) --%>
+                                <div class="d-flex gap-2 mt-2">
+                                    <button class="btn btn-sm btn-success flex-grow-1" style="font-size: 0.7rem;">APPROVE</button>
+                                    <button class="btn btn-sm btn-secondary flex-grow-1" style="font-size: 0.7rem;">REJECT</button>
+                                </div>
+                                <% } %>
                             </div>
                         </div>
                     </div>

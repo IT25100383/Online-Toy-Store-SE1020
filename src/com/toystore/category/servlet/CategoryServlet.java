@@ -2,6 +2,7 @@ package com.toystore.category.servlet;
 
 import com.toystore.category.model.Category;
 import com.toystore.category.service.CategoryService;
+import com.toystore.user.model.User; // Added Import
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +21,15 @@ public class CategoryServlet extends HttpServlet {
         String action = request.getParameter("action");
         if (action == null) {
             action = "view";
+        }
+
+        // ROLE PROTECTION: Admin Only for modifying categories
+        if ("addPage".equals(action) || "editPage".equals(action) || "delete".equals(action)) {
+            User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+            if (loggedInUser == null || !"ADMIN".equalsIgnoreCase(loggedInUser.getRole())) {
+                response.sendRedirect(request.getContextPath() + "/");
+                return;
+            }
         }
 
         switch (action) {
@@ -50,6 +60,13 @@ public class CategoryServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        // ROLE PROTECTION: Block unauthorized POST requests
+        User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+        if (loggedInUser == null || !"ADMIN".equalsIgnoreCase(loggedInUser.getRole())) {
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
 
         String action = request.getParameter("action");
 

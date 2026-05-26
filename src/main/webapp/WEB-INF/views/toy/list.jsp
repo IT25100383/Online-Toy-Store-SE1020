@@ -3,6 +3,10 @@
 <%
     request.setAttribute("pageTitle", "Browse Toys");
     request.setAttribute("isAdminPage", false);
+
+    // ROLE CHECK LOGIC
+    com.toystore.user.model.User loggedInUser = (com.toystore.user.model.User) session.getAttribute("loggedInUser");
+    boolean isAdmin = loggedInUser != null && "ADMIN".equalsIgnoreCase(loggedInUser.getRole());
 %>
 
 <%@ include file="../partials/header.jsp" %>
@@ -14,9 +18,13 @@
             <h1 class="fw-bold display-5 mb-2">Explore Our Collection</h1>
             <p class="text-secondary fs-5 mb-0">Discover premium toys, collectibles, and creative experiences.</p>
         </div>
+
+        <%-- ADD TOY BUTTON (Admin Only) --%>
+        <% if (isAdmin) { %>
         <a href="${pageContext.request.contextPath}/toy?action=addPage" class="btn btn-warning btn-lg rounded-pill px-4">
             <i class="bi bi-plus-lg me-2"></i> Add New Toy
         </a>
+        <% } %>
     </div>
 
     <div class="d-flex flex-wrap gap-3 mb-5">
@@ -79,11 +87,14 @@
                                 </div>
 
                                 <div class="mt-auto">
+                                        <%-- PUBLIC ACTION: ORDER NOW --%>
                                     <a href="${pageContext.request.contextPath}/order?action=checkout&toyId=${toy.toyId}"
                                        class="btn btn-warning w-100 fw-bold mb-2">
                                         <i class="bi bi-cart-plus me-2"></i>Order Now
                                     </a>
 
+                                        <%-- ADMIN ACTIONS: EDIT/DELETE --%>
+                                    <% if (isAdmin) { %>
                                     <div class="d-flex gap-2">
                                         <a href="${pageContext.request.contextPath}/toy?action=editPage&toyId=${toy.toyId}"
                                            class="btn btn-sm btn-outline-light flex-grow-1">Edit</a>
@@ -93,6 +104,7 @@
                                             <i class="bi bi-trash"></i>
                                         </a>
                                     </div>
+                                    <% } %>
                                 </div>
                             </div>
                         </div>

@@ -33,6 +33,14 @@ public class UserServlet extends HttpServlet {
                 break;
 
             case "view":
+                // ROLE PROTECTION: Admin Only for viewing user list
+                User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+
+                if (loggedInUser == null || !"ADMIN".equalsIgnoreCase(loggedInUser.getRole())) {
+                    response.sendRedirect(request.getContextPath() + "/");
+                    return;
+                }
+
                 request.setAttribute("userList", userService.getAllUsers());
                 request.getRequestDispatcher("/WEB-INF/views/user/view-users.jsp").forward(request, response);
                 break;
@@ -59,6 +67,7 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // Existing doPost logic (handleLogin and handleRegister) remains unchanged
         String action = request.getParameter("action");
         if (action == null) {
             response.sendRedirect(request.getContextPath() + "/user?action=loginPage");
@@ -84,7 +93,6 @@ public class UserServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        // Logic to verify user and retrieve the User object
         User user = null;
         try {
             for (User u : userService.getAllUsers()) {
@@ -97,37 +105,16 @@ public class UserServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        // ISSUE 1 & 2 — SESSION AND REDIRECT LOGIC
         if (user != null) {
-
             HttpSession session = request.getSession();
+            session.setAttribute("loggedInUser", user);
 
-            // CONSISTENT SESSION ATTRIBUTE: loggedInUser
-            session.setAttribute(
-                    "loggedInUser",
-                    user
-            );
-
-            // ADMIN LOGIN
             if (user.getRole().equalsIgnoreCase("ADMIN")) {
-
-                response.sendRedirect(
-                        request.getContextPath()
-                                + "/admin"
-                );
-
+                response.sendRedirect(request.getContextPath() + "/admin");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/toy?action=view");
             }
-            // NORMAL USER LOGIN
-            else {
-
-                response.sendRedirect(
-                        request.getContextPath()
-                                + "/toy?action=view"
-                );
-            }
-
         } else {
-            // Redirect back to login if user is not found
             response.sendRedirect(request.getContextPath() + "/user?action=loginPage");
         }
     }
@@ -137,19 +124,9 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Generate unique ID
         String userId = "U-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 
-        // STEP 4 — UPDATE REGISTRATION
-        // Public registration ALWAYS creates "USER" role only
-        User user = new User(
-                userId,
-                name,
-                email,
-                password,
-                "USER"
-        );
-
+        User user = new User(userId, name, email, password, "USER");
         userService.register(user);
 
         response.sendRedirect(request.getContextPath() + "/user?action=loginPage");

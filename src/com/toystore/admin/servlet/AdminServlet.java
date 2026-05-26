@@ -1,5 +1,6 @@
 package com.toystore.admin.servlet;
 
+import com.toystore.user.model.User; // Added Import
 import com.toystore.user.service.UserService;
 import com.toystore.toy.service.ToyService;
 import com.toystore.order.service.OrderService;
@@ -19,6 +20,13 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        // ROLE PROTECTION: Check every request to the /admin route
+        User loggedInUser = (User) request.getSession().getAttribute("loggedInUser");
+        if (loggedInUser == null || !"ADMIN".equalsIgnoreCase(loggedInUser.getRole())) {
+            response.sendRedirect(request.getContextPath() + "/user?action=loginPage");
+            return;
+        }
 
         String action = request.getParameter("action");
         if (action == null) {
