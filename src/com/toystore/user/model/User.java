@@ -1,9 +1,5 @@
 package com.toystore.user.model;
 
-/**
- * Model representing a User in the Toy Store system.
- * Handles both normal customers and administrators via the role field.
- */
 public class User {
 
     private String userId;
@@ -12,7 +8,6 @@ public class User {
     private String password;
     private String role;
 
-    // CONSTRUCTOR
     public User(
             String userId,
             String name,
@@ -27,7 +22,6 @@ public class User {
         this.role = role;
     }
 
-    // GETTERS AND SETTERS
     public String getUserId() {
         return userId;
     }
@@ -70,10 +64,6 @@ public class User {
 
     // FILE CONVERSION METHODS
 
-    /**
-     * Converts the User object into a comma-separated string for file storage.
-     * Format: userId,name,email,password,role
-     */
     public String toFileString() {
         return userId + ","
                 + name + ","
@@ -82,15 +72,11 @@ public class User {
                 + role;
     }
 
-    /**
-     * Creates a User object from a comma-separated string line from the text file.
-     * @param line A line from users.txt
-     * @return A new User object
-     */
+    
     public static User fromFileString(String line) {
         String[] parts = line.split(",");
 
-        // Basic validation to prevent ArrayIndexOutOfBoundsException
+        
         if (parts.length < 5) {
             return null;
         }
@@ -104,7 +90,6 @@ public class User {
         );
     }
 
-    // Compatibility method for legacy Service calls
     public String toCSV() {
         return toFileString();
     }

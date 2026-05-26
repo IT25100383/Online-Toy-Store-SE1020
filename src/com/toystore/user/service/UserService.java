@@ -14,18 +14,17 @@ public class UserService {
         loadUsers();
     }
 
-    // REGISTER USER
+
     public void register(User user) {
         userList.add(user);
         saveUsers();
     }
 
-    // GET ALL USERS
+
     public List<User> getAllUsers() {
         return userList;
     }
 
-    // LOGIN LOGIC (Required by UserServlet)
     public boolean login(String username, String password) {
         for (User user : userList) {
             if (user.getName().equals(username) && user.getPassword().equals(password)) {
@@ -35,7 +34,6 @@ public class UserService {
         return false;
     }
 
-    // SAVE USERS
     private void saveUsers() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             for (User user : userList) {
@@ -47,7 +45,7 @@ public class UserService {
         }
     }
 
-    // LOAD USERS
+   
     private void loadUsers() {
         File file = new File(FILE_PATH);
         if (!file.exists()) {

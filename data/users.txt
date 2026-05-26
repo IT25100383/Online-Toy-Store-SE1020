@@ -1,2 +1,0 @@
-ADM001,Adam,ad@gmail.com,1234,ADMIN
-USR001,John,john@gmail.com,1234,USER
