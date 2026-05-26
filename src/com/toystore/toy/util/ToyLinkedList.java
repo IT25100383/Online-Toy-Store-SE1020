@@ -6,9 +6,19 @@ public class ToyLinkedList {
 
     private Node head;
 
+    // SET HEAD
+
     public void setHead(Node head) {
         this.head = head;
     }
+
+    // GET HEAD
+
+    public Node getHead() {
+        return head;
+    }
+
+    // ADD TOY
 
     public void addToy(toy toy) {
 
@@ -28,17 +38,35 @@ public class ToyLinkedList {
         current.next = newNode;
     }
 
+    // DISPLAY TOYS
+
     public void displayToys() {
 
         Node current = head;
 
         while (current != null) {
+
             System.out.println(current.data);
+
             current = current.next;
         }
     }
 
-    public Node getHead() {
-        return head;
+    // COUNT TOYS
+
+    public int size() {
+
+        int count = 0;
+
+        Node current = head;
+
+        while (current != null) {
+
+            count++;
+
+            current = current.next;
+        }
+
+        return count;
     }
 }
