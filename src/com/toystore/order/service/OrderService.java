@@ -11,79 +11,51 @@ import java.util.UUID;
 
 public class OrderService {
 
-    // File paths
-    private static final String ORDERS_FILE = "data/orders.txt";
-    private static final String TOYS_FILE = "data/toys.txt";
-
-    // ========== FILE HELPERS ==========
+    private static final String ORDERS_FILE = "C:/Users/USER/Documents/EDU/Y1/Y1S2/OOP/Project/Toy Store Sandbox/data/orders.txt";
+    private static final String TOYS_FILE = "C:/Users/USER/Documents/EDU/Y1/Y1S2/OOP/Project/Toy Store Sandbox/data/toys.txt";
 
     private List<String> readAllLines(String filePath) {
         List<String> lines = new ArrayList<>();
         File file = new File(filePath);
-
-        if (!file.exists()) {
-            try {
-                if (file.getParentFile() != null) {
-                    file.getParentFile().mkdirs();
-                }
-                file.createNewFile();
-            } catch (IOException e) {
-                System.out.println("File creation error: " + e.getMessage());
-            }
-            return lines;
-        }
+        if (!file.exists()) return lines;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                if (!line.trim().isEmpty()) {
-                    lines.add(line.trim());
-                }
+                if (!line.trim().isEmpty()) lines.add(line.trim());
             }
         } catch (IOException e) {
-            System.out.println("Read error: " + e.getMessage());
+            System.out.println("Read error.");
         }
         return lines;
     }
 
     private void writeAllLines(String filePath, List<String> lines) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (String line : lines) {
                 writer.write(line);
                 writer.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Write error: " + e.getMessage());
+            System.out.println("Write error.");
         }
     }
 
     private void appendLine(String filePath, String line) {
         File file = new File(filePath);
-        try {
-            if (file.getParentFile() != null) {
-                file.getParentFile().mkdirs();
-            }
-        } catch (Exception e) {
-            System.out.println("Folder creation error: " + e.getMessage());
-        }
-
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
             writer.write(line);
             writer.newLine();
         } catch (IOException e) {
-            System.out.println("Append error: " + e.getMessage());
+            System.out.println("Append error.");
         }
     }
-
-    // ========== TOY STOCK HELPERS (From Main) ==========
 
     private toy getToyById(String toyId) {
         List<String> lines = readAllLines(TOYS_FILE);
         for (String line : lines) {
             toy currentToy = toy.fromFileString(line);
-            if (currentToy != null && currentToy.getToyId().equals(toyId)) {
-                return currentToy;
-            }
+            if (currentToy != null && currentToy.getToyId().equals(toyId)) return currentToy;
         }
         return null;
     }
@@ -100,9 +72,6 @@ public class OrderService {
         writeAllLines(TOYS_FILE, lines);
     }
 
-    // ========== CORE CRUD & BUSINESS LOGIC ==========
-
-    // CREATE ORDER (Advanced version with stock update)
     public String placeOrder(String userId, String toyId, int quantity) {
         toy toy = getToyById(toyId);
         if (toy == null) return "ERROR: Toy not found!";
@@ -116,37 +85,29 @@ public class OrderService {
         Order order = new Order(orderId, userId, toyId, toy.getName(), quantity, totalPrice, orderDate, "PENDING");
         appendLine(ORDERS_FILE, order.toFileString());
 
-        // Update stock
         toy.setStock(toy.getStock() - quantity);
         updateToyStock(toy);
 
         return "SUCCESS: Order placed!";
     }
 
-    // READ ALL ORDERS
     public List<Order> getAllOrders() {
         List<Order> orders = new ArrayList<>();
         List<String> lines = readAllLines(ORDERS_FILE);
         for (String line : lines) {
             Order order = Order.fromFileString(line);
-            if (order != null) {
-                orders.add(order);
-            }
+            if (order != null) orders.add(order);
         }
         return orders;
     }
 
-    // GET ORDER BY ID
     public Order getOrderById(String orderId) {
         for (Order order : getAllOrders()) {
-            if (order.getOrderId().equals(orderId)) {
-                return order;
-            }
+            if (order.getOrderId().equals(orderId)) return order;
         }
         return null;
     }
 
-    // UPDATE ORDER STATUS
     public boolean updateOrderStatus(String orderId, String newStatus) {
         List<String> lines = readAllLines(ORDERS_FILE);
         boolean found = false;
@@ -163,38 +124,19 @@ public class OrderService {
         return found;
     }
 
-    // DELETE ORDER
     public boolean deleteOrder(String orderId) {
         List<String> lines = readAllLines(ORDERS_FILE);
         List<String> updated = new ArrayList<>();
         boolean found = false;
         for (String line : lines) {
             String[] parts = line.split(",");
-            if (parts.length > 0 && parts[0].equals(orderId)) {
-                found = true;
-            } else {
-                updated.add(line);
-            }
+            if (parts.length > 0 && parts[0].equals(orderId)) found = true;
+            else updated.add(line);
         }
         if (found) writeAllLines(ORDERS_FILE, updated);
         return found;
     }
 
-    // ========== YOUR CUSTOM METHODS (From Feature Branch) ==========
-
-    // Filter orders by User ID
-    public List<Order> getOrdersByUserId(String userId) {
-        List<Order> allOrders = getAllOrders();
-        List<Order> userOrders = new ArrayList<>();
-        for (Order order : allOrders) {
-            if (order.getUserId().equals(userId)) {
-                userOrders.add(order);
-            }
-        }
-        return userOrders;
-    }
-
-    // Selection Sort (Low to High)
     public List<Order> getOrdersSortedByPriceSelectionSort() {
         List<Order> orders = getAllOrders();
         int n = orders.size();
@@ -205,7 +147,7 @@ public class OrderService {
                     min_idx = j;
                 }
             }
-            // Object Swap
+
             Order temp = orders.get(min_idx);
             orders.set(min_idx, orders.get(i));
             orders.set(i, temp);
@@ -213,19 +155,15 @@ public class OrderService {
         return orders;
     }
 
-    public int getPendingCount() {
-        int count = 0;
-        for (Order order : getAllOrders()) {
-            if ("PENDING".equals(order.getStatus())) count++;
-        }
-        return count;
+    public int getTotalOrders() {
+        return getAllOrders().size();
     }
 
-    public int getCompletedCount() {
-        int count = 0;
+    public double calculateTotalRevenue() {
+        double total = 0;
         for (Order order : getAllOrders()) {
-            if ("COMPLETED".equals(order.getStatus())) count++;
+            total += order.getTotalPrice();
         }
-        return count;
+        return total;
     }
 }

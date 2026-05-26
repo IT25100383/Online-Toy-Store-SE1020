@@ -1,121 +1,75 @@
 package com.toystore.user.service;
 
 import com.toystore.user.model.User;
-import java.io.IOException;
-import java.nio.file.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
 
-    // Local storage file path inside resources folder
-    private final Path path = Paths.get("data/users.txt");
+    private final String FILE_PATH = "C:/Users/USER/Documents/EDU/Y1/Y1S2/OOP/Project/Toy Store Sandbox/data/users.txt";
+    private List<User> userList = new ArrayList<>();
 
-    // =========================================================================
-    // C - CREATE (Register)
-    // =========================================================================
-    public void register(User user) throws IOException {
-        String data = user.toCSV() + "\n";
-        // CREATE builds file if missing; APPEND safely adds data to the end
-        Files.writeString(path, data, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+    public UserService() {
+        loadUsers();
     }
 
-    // =========================================================================
-    // R - READ (Login)
-    // =========================================================================
-    public boolean login(String username, String password) throws IOException {
-        if (!Files.exists(path)) return false;
 
-        List<String> lines = Files.readAllLines(path);
-        for (String line : lines) {
-            String[] parts = line.split(",");
+    public void register(User user) {
+        userList.add(user);
+        saveUsers();
+    }
 
-            // Verifies structural integrity (4 fields) before matching credentials
-            if (parts.length >= 4 && parts[0].equals(username) && parts[1].equals(password)) {
+
+    public List<User> getAllUsers() {
+        return userList;
+    }
+
+    public boolean login(String username, String password) {
+        for (User user : userList) {
+            if (user.getName().equals(username) && user.getPassword().equals(password)) {
                 return true;
             }
         }
         return false;
     }
 
-    // =========================================================================
-    // R - READ ALL (Fetch User Registry)
-    // =========================================================================
-    public List<User> getAllUsers() throws IOException {
-        List<User> users = new ArrayList<>();
-
-        if (!Files.exists(path)) {
-            return users;
-        }
-
-        List<String> lines = Files.readAllLines(path);
-        for (String line : lines) {
-            String[] parts = line.split(",");
-
-            // Ensures line contains all 4 required fields before object instantiation
-            if (parts.length >= 4) {
-                User user = new User(
-                        parts[0], // username
-                        parts[1], // password
-                        parts[2], // email
-                        parts[3]  // fullName
-                );
-                users.add(user);
+    private void saveUsers() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            for (User user : userList) {
+                writer.write(user.toFileString());
+                writer.newLine();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return users;
     }
 
-    // =========================================================================
-    // U - UPDATE (Modify Profile)
-    // =========================================================================
-    public boolean updateUserProfile(String username, String newEmail, String newFullName) throws IOException {
-        if (!Files.exists(path)) return false;
+   
+    private void loadUsers() {
+        File file = new File(FILE_PATH);
+        if (!file.exists()) {
+            return;
+        }
 
-        List<User> allUsers = getAllUsers();
-        List<String> updatedLines = new ArrayList<>();
-        boolean isUpdated = false;
-
-        for (User user : allUsers) {
-            if (user.getUsername().equals(username)) {
-                // Reconstructs the row with updated parameters while retaining password
-                String updatedLine = user.getUsername() + "," + user.getPassword() + "," + newEmail + "," + newFullName;
-                updatedLines.add(updatedLine);
-                isUpdated = true;
-            } else {
-                updatedLines.add(user.toCSV());
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+                try {
+                    User user = User.fromFileString(line);
+                    if (user != null) {
+                        userList.add(user);
+                    }
+                } catch (Exception e) {
+                    System.out.println("FAILED TO LOAD USER: " + line);
+                    e.printStackTrace();
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        if (isUpdated) {
-            // Overwrites the entire file with the updated memory collection
-            Files.write(path, updatedLines);
-        }
-        return isUpdated;
-    }
-
-    // =========================================================================
-    // D - DELETE (Remove Account)
-    // =========================================================================
-    public boolean deleteUser(String username) throws IOException {
-        if (!Files.exists(path)) return false;
-
-        List<User> allUsers = getAllUsers();
-        List<String> updatedLines = new ArrayList<>();
-        boolean isDeleted = false;
-
-        for (User user : allUsers) {
-            if (user.getUsername().equals(username)) {
-                // Skips adding this specific user to the list to remove it from file data
-                isDeleted = true;
-            } else {
-                updatedLines.add(user.toCSV());
-            }
-        }
-
-        if (isDeleted) {
-            Files.write(path, updatedLines);
-        }
-        return isDeleted;
     }
 }

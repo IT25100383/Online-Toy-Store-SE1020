@@ -1,2 +1,0 @@
-admin,admin123,admin@toystore.com,System Administrator
-sanjana,pass123,sanjana@toystore.com,Sanjana Perera
