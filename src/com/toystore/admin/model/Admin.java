@@ -1,18 +1,18 @@
 package com.toystore.admin.model;
 
-class Admin {
+public class Admin {
     private String username;
     private String password;
     private String role;
 
-    // Constructor
+    //Constructor
     public Admin(String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
     }
 
-    // Getters
+    //Getters
     public String getUsername() {
         return username;
     }
@@ -25,7 +25,7 @@ class Admin {
         return role;
     }
 
-    // Setters
+    //Setters
     public void setPassword(String password) {
         this.password = password;
     }

@@ -1,0 +1,181 @@
+/* --- Core Theme Variables & Resets --- */
+:root {
+    --bg-main: #0a0b0d;
+    --bg-surface: #12141c;
+    --bg-panel: #1a1d29;
+    --accent-glow: #ff9f1c;
+    --accent-gold: #e5a93c;
+    --text-primary: #f8f9fa;
+    --text-muted: #8a92a6;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(18, 20, 28, 0.75);
+    --glass-blur: blur(12px);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* --- Glassmorphism & Cards --- */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-color);
+}
+
+.premium-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 159, 28, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 159, 28, 0.1);
+}
+
+/* --- Typography & Elements --- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.text-gold {
+    color: var(--accent-gold);
+}
+
+.text-muted-custom {
+    color: var(--text-muted);
+}
+
+/* --- Custom Buttons --- */
+.btn-premium {
+    background: linear-gradient(135deg, #ff9f1c 0%, #ff7a00 100%);
+    color: #0a0b0d;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    transition: all 0.2s ease;
+}
+
+.btn-premium:hover {
+    background: linear-gradient(135deg, #ffa934 0%, #ff881a 100%);
+    color: #0a0b0d;
+    box-shadow: 0 0 15px rgba(255, 159, 28, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-outline-premium {
+    background: transparent;
+    color: var(--accent-glow);
+    border: 1px solid var(--accent-glow);
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 10px 24px;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-premium:hover {
+    background: rgba(255, 159, 28, 0.1);
+    color: var(--accent-glow);
+    border-color: var(--accent-glow);
+}
+
+/* --- Form Design --- */
+.form-control, .form-select {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--bg-panel);
+    border-color: var(--accent-glow);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.15);
+}
+
+/* --- Reusable Visual Placeholders --- */
+.toy-img-placeholder {
+    height: 240px;
+    background: linear-gradient(145deg, #1a1d29 0%, #12141c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.toy-img-placeholder i {
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, 0.05);
+    transition: color 0.3s ease;
+}
+
+.premium-card:hover .toy-img-placeholder i {
+    color: rgba(255, 159, 28, 0.15);
+}
+
+/* --- Badges --- */
+.badge-premium {
+    background-color: rgba(255, 159, 28, 0.1);
+    color: var(--accent-glow);
+    border: 1px solid rgba(255, 159, 28, 0.2);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 5px 10px;
+}
+
+/* --- Table Modifiers --- */
+.table-dark-custom {
+    --bs-table-bg: var(--bg-surface);
+    --bs-table-border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* --- Admin Layout --- */
+.admin-sidebar {
+    background-color: var(--bg-surface);
+    border-right: 1px solid var(--border-color);
+    min-height: calc(100vh - 70px);
+}
+
+.admin-nav-link {
+    color: var(--text-muted);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.admin-nav-link:hover, .admin-nav-link.active {
+    color: var(--text-primary);
+    background-color: var(--bg-panel);
+}
+
+.admin-nav-link.active {
+    border-left: 3px solid var(--accent-glow);
+}
