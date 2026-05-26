@@ -8,7 +8,6 @@ import java.util.*;
 public class AdminService {
     private static final String FILE_NAME = "C:/Users/USER/Documents/EDU/Y1/Y1S2/OOP/Project/Toy Store Sandbox/data/admins.txt";
 
-    //CREATE a new admin
     public void addAdmin(Admin admin) {
         try (FileWriter fw = new FileWriter(FILE_NAME, true)) {
             fw.write(admin.toString() + "\n");
@@ -17,7 +16,6 @@ public class AdminService {
         }
     }
 
-    //READ admin details
     public void viewAdmins() {
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
@@ -30,7 +28,6 @@ public class AdminService {
         }
     }
 
-    //UPDATE admin
     public void updateAdmin(String username, String newPassword, String newRole) {
         List<String> admins = new ArrayList<>();
         boolean found = false;
@@ -56,7 +53,6 @@ public class AdminService {
         }
     }
 
-    //DELETE an admin
     public void deleteAdmin(String username) {
         List<String> admins = new ArrayList<>();
         boolean found = false;

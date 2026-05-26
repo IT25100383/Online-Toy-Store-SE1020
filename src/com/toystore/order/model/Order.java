@@ -2,7 +2,6 @@ package com.toystore.order.model;
 
 public class Order {
 
-    // Encapsulation
     private String orderId;
     private String userId;
     private String toyId;
@@ -10,17 +9,15 @@ public class Order {
     private int quantity;
     private double totalPrice;
     private String orderDate;
-    private String status; // pending, completed, cancelled
+    private String status; // PENDING, COMPLETED, CANCELLED
 
     // Default Constructor
-    public Order() {
-    }
+    public Order() {}
 
     // Parameterized Constructor
     public Order(String orderId, String userId, String toyId,
                  String toyName, int quantity, double totalPrice,
                  String orderDate, String status) {
-
         this.orderId = orderId;
         this.userId = userId;
         this.toyId = toyId;
@@ -31,125 +28,62 @@ public class Order {
         this.status = status;
     }
 
-    // Getters
-    public String getOrderId() {
+    // Getters & Setters
+    public String getOrderId() { return orderId; }
+    public void setOrderId(String orderId) { this.orderId = orderId; }
 
-        return orderId;
-    }
+    public String getUserId() { return userId; }
+    public void setUserId(String userId) { this.userId = userId; }
 
-    public String getUserId() {
+    public String getToyId() { return toyId; }
+    public void setToyId(String toyId) { this.toyId = toyId; }
 
-        return userId;
-    }
+    public String getToyName() { return toyName; }
+    public void setToyName(String toyName) { this.toyName = toyName; }
 
-    public String getToyId() {
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
 
-        return toyId;
-    }
+    public double getTotalPrice() { return totalPrice; }
+    public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
 
-    public String getToyName() {
+    public String getOrderDate() { return orderDate; }
+    public void setOrderDate(String orderDate) { this.orderDate = orderDate; }
 
-        return toyName;
-    }
-
-    public int getQuantity() {
-
-        return quantity;
-    }
-
-    public double getTotalPrice() {
-
-        return totalPrice;
-    }
-
-    public String getOrderDate() {
-
-        return orderDate;
-    }
-
-    public String getStatus() {
-
-        return status;
-    }
-
-    // Setters
-    public void setOrderId(String orderId) {
-
-        this.orderId = orderId;
-    }
-
-    public void setUserId(String userId) {
-
-        this.userId = userId;
-    }
-
-    public void setToyId(String toyId) {
-
-        this.toyId = toyId;
-    }
-
-    public void setToyName(String toyName) {
-
-        this.toyName = toyName;
-    }
-
-    public void setQuantity(int quantity) {
-
-        this.quantity = quantity;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-
-        this.totalPrice = totalPrice;
-    }
-
-    public void setOrderDate(String orderDate) {
-
-        this.orderDate = orderDate;
-    }
-
-    public void setStatus(String status) {
-
-        this.status = status;
-    }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 
     // Convert object to one line for file storage
-    // Example:
-    // ORD-001,USR-001,TOY-001,LEGO Set,2,5000.0,2026-03-01,PENDING
+    // Example: ORD-001,USR-001,TOY-001,LEGO Set,2,5000.00,2026-03-01,PENDING
     public String toFileString() {
-
-        return orderId + "," + userId + "," + toyId + "," +
-                toyName + "," + quantity + "," +
-                totalPrice + "," + orderDate + "," + status;
+        return String.format("%s,%s,%s,%s,%d,%.2f,%s,%s",
+                orderId, userId, toyId, toyName, quantity, totalPrice, orderDate, status);
     }
 
-    // Convert one line from file back into Order object
+    // Parse one line from file to Order Object
     public static Order fromFileString(String line) {
-
-        String[] parts = line.split(",");
-
-        // Basic safety check
-        if (parts.length < 8) {
-
-            throw new IllegalArgumentException("Invalid order data");
+        try {
+            String[] parts = line.split(",");
+            if (parts.length >= 8) {
+                return new Order(
+                        parts[0].trim(), 
+                        parts[1].trim(), 
+                        parts[2].trim(), 
+                        parts[3].trim(),
+                        Integer.parseInt(parts[4].trim()),
+                        Double.parseDouble(parts[5].trim()),
+                        parts[6].trim(), 
+                        parts[7].trim()
+                );
+            }
+        } catch (Exception e) {
+            System.err.println("Error parsing order line: " + e.getMessage());
         }
-
-        return new Order(
-                parts[0],
-                parts[1],
-                parts[2],
-                parts[3],
-                Integer.parseInt(parts[4]),
-                Double.parseDouble(parts[5]),
-                parts[6],
-                parts[7]
-        );
+        return null;
     }
 
     @Override
     public String toString() {
-
-        return "Order{orderId=" + orderId +
-                ", status=" + status + "}";
+        return "Order [ID=" + orderId + ", Item=" + toyName + ", Total=" + totalPrice + ", Status=" + status + "]";
     }
 }
